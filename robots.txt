@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cocopodcast.fm/sitemap.xml
