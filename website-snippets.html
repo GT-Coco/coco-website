@@ -1,0 +1,106 @@
+<!-- ================================================================
+  CoCo Website Updates — paste-ready snippets
+  ----------------------------------------------------------------
+  Files to add to the repo root (next to index.html):
+    · mediakit.pdf   (the public media kit)
+    · og-card.png    (1200x630 share image)
+  Then paste the five blocks below where indicated.
+  Accent colour used: #693602 (the brown from the CoCo logo glasses).
+  If you prefer the site's gold, swap the two occurrences.
+================================================================ -->
+
+
+<!-- ================================================================
+  1) SOCIAL SHARE IMAGE — replace the existing og:image / twitter
+     tags inside <head> with these (avoid duplicates):
+================================================================ -->
+<meta property="og:image" content="https://www.cocopodcast.fm/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CoCo — Click. Consume. Connect. The Connected Consumers Podcast, hosted by Güneri Tugcu and Stefan Hilss.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.cocopodcast.fm/og-card.png">
+<!-- After deploying, refresh LinkedIn's cache once via the
+     LinkedIn Post Inspector (linkedin.com/post-inspector). -->
+
+
+<!-- ================================================================
+  2) MEDIA KIT SECTION — paste directly BEFORE the footer.
+     Self-contained, uses the site's font families with fallbacks.
+================================================================ -->
+<section id="media-kit" style="border-top:1px solid rgba(20,20,20,.12); padding:76px 24px; text-align:center;">
+  <p style="font-family:'Barlow', Arial, sans-serif; font-size:12px; letter-spacing:.28em; text-transform:uppercase; color:#9a9a9a; margin:0 0 18px;">For prospective guests &amp; partners</p>
+  <h2 style="font-family:'Libre Baskerville', Georgia, serif; font-weight:400; font-size:clamp(26px,4vw,34px); color:#141414; margin:0 0 16px;">Join the conversation.</h2>
+  <p style="font-family:'Barlow', Arial, sans-serif; font-size:16px; line-height:1.65; color:#5f5f5f; max-width:580px; margin:0 auto 30px;">
+    Guest and partnership enquiries are welcome. The CoCo executive media kit covers the platform,
+    the audience and the guest experience on fifteen pages.
+  </p>
+  <a href="/mediakit.pdf" target="_blank" rel="noopener"
+     style="display:inline-block; font-family:'Barlow', Arial, sans-serif; font-size:13px; letter-spacing:.16em; text-transform:uppercase; text-decoration:none; color:#faf8f4; background:#141414; padding:15px 30px;">
+    Download the media kit&nbsp;(PDF)
+  </a>
+  <p style="font-family:'Barlow', Arial, sans-serif; font-size:13px; color:#9a9a9a; margin:24px 0 0;">
+    Enquiries: <a href="mailto:contact@cocopodcast.fm" style="color:#693602; text-decoration:none;">contact@cocopodcast.fm</a>
+  </p>
+</section>
+
+
+<!-- ================================================================
+  3) FOOTER LINK — add next to Impressum / Datenschutz:
+================================================================ -->
+<a href="/mediakit.pdf" target="_blank" rel="noopener">Media Kit</a>
+
+
+<!-- ================================================================
+  4) LIVE EPISODE COUNTER — wherever the episode number appears,
+     use this span (23 is the correct static fallback today):
+================================================================ -->
+<span data-episode-count>23</span>
+
+<script>
+  /* Hook this into your existing RSS pipeline: after any of the three
+     fallbacks (rss2json / CORS proxies) parses successfully, call
+     updateEpisodeCount(items) with the parsed item array. The static
+     "23" above remains as the fallback if all live sources fail. */
+  function updateEpisodeCount(items) {
+    if (!items || !items.length) return;
+    document.querySelectorAll("[data-episode-count]").forEach(function (el) {
+      el.textContent = items.length;
+    });
+  }
+</script>
+
+
+<!-- ================================================================
+  5) CLOUDFLARE WEB ANALYTICS
+     a) Enable: Cloudflare Dashboard → Web Analytics → Add a site →
+        copy the beacon <script> it gives you and paste it just
+        before </body>. Cookieless, no consent banner required.
+     b) Add these paragraphs to the privacy pages:
+================================================================ -->
+
+<!-- datenschutz.html (Deutsch, rechtlich maßgeblich) -->
+<h3>Webanalyse</h3>
+<p>
+  Diese Website nutzt Cloudflare Web Analytics, einen datenschutzfreundlichen
+  Analysedienst der Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA.
+  Es werden keine Cookies gesetzt, kein Fingerprinting durchgeführt und keine
+  personenbezogenen Daten geräteübergreifend verfolgt. Erfasst werden ausschließlich
+  aggregierte Kennzahlen wie Seitenaufrufe, Verweisquellen und Ländern zugeordnete
+  Zugriffe. Rechtsgrundlage ist unser berechtigtes Interesse an der statistischen
+  Auswertung der Nutzung dieser Website (Art. 6 Abs. 1 lit. f DSGVO). Weitere
+  Informationen: <a href="https://www.cloudflare.com/web-analytics/">cloudflare.com/web-analytics</a>.
+</p>
+
+<!-- datenschutz.html (English convenience translation) -->
+<h3>Web analytics</h3>
+<p>
+  This website uses Cloudflare Web Analytics, a privacy-friendly analytics service
+  provided by Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA.
+  It sets no cookies, performs no fingerprinting and does not track personal data
+  across devices. Only aggregated metrics such as page views, referrers and
+  country-level access figures are collected. The legal basis is our legitimate
+  interest in the statistical analysis of the use of this website
+  (Art. 6(1)(f) GDPR). More information:
+  <a href="https://www.cloudflare.com/web-analytics/">cloudflare.com/web-analytics</a>.
+</p>
